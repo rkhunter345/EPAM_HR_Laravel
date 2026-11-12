@@ -1,0 +1,41 @@
+REQUISITOS PARA EJECUTAR EPAM HR (Windows)
+==========================================
+1) PHP 8.2 o superior con las extensiones: pdo_sqlite, mbstring, openssl,
+   curl, fileinfo, zip.
+   - Instalar:  winget install PHP.PHP.8.3
+   - El zip de PHP viene sin php.ini: copia php.ini-development -> php.ini
+     y activa (quita el punto y coma de) extension_dir y esas extensiones.
+   - Verificar: php -v  y  php -m
+
+2) Composer 2 (una sola vez):
+     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+     mkdir C:\Tools
+     php composer-setup.php --install-dir=C:\Tools --filename=composer.phar
+     Set-Content C:\Tools\composer.bat '@php "C:\Tools\composer.phar" %*'
+     (abrir PowerShell de nuevo para que el Path tome efecto)
+
+2b) (Opcional) Asistente con Ollama local:
+     winget install Ollama.Ollama
+     ollama pull llama3.2
+     (deja corriendo Ollama; el sistema lo detecta solo en 127.0.0.1:11434)
+
+3) Ejecutar el proyecto (o doble clic en setup.bat):
+     composer install
+     copy .env.example .env
+     php artisan key:generate
+     php artisan migrate --seed
+     php artisan serve        ->  http://127.0.0.1:8000
+
+   Para regenerar la base demo limpia:  php artisan migrate:fresh --seed
+
+4) Usuarios demo (contrasena: epam123):
+     admin / rrhh / supervisor / angela / juan / maria / carlos / lucia
+
+5) Opcional (MySQL): en .env usar DB_CONNECTION=mysql y crear la base epam_hr.
+
+Linux/macOS: php8.x-cli, php-sqlite3 y composer; mismos comandos con cp .env.example .env
+y setup.sh.
+
+6) PDF: el paquete ya incluye barryvdh/laravel-dompdf (composer install lo descarga solo).
+   - Boleta de pago individual: boton "Boleta PDF" en cada fila del periodo.
+   - Planilla general de todos los empleados: boton "Planilla PDF" en el periodo.

@@ -1,0 +1,100 @@
+/* ==========================================================================
+   EPAM HR · v11 — capa de acabado. Marca nativa, acceso a sangre y detalles.
+   ========================================================================== */
+html,body{margin:0;padding:0}
+
+/* ------------------------------ marca nativa ---------------------------- */
+.marca{display:inline-flex;align-items:center;gap:9px;line-height:1;text-decoration:none}
+.marca__sello{width:34px;height:34px;flex:none;border-radius:9px;display:block}
+.marca__txt{display:flex;flex-direction:column;gap:1px;font-size:11.2px;font-weight:800;letter-spacing:.07em}
+.marca__txt span{font-weight:600;font-size:9.4px;letter-spacing:.11em;opacity:.72}
+.marca--claro .marca__txt{color:#fff}
+.marca--oscuro .marca__txt{color:var(--navy-900,#0a2342)}
+.marca--lg .marca__sello{width:44px;height:44px;border-radius:12px}
+.marca--lg .marca__txt{font-size:13.6px}
+.marca--lg .marca__txt span{font-size:10.6px}
+.marca--compacta .marca__txt{display:none}
+
+/* ------------------------- acceso a sangre (login) ---------------------- */
+.acceso-body{background:#fff}
+.acceso{min-height:100vh;width:100%;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);overflow:hidden}
+.acceso__arte{
+  position:relative;color:#fff;padding:44px 52px;display:flex;flex-direction:column;justify-content:space-between;
+  background:linear-gradient(158deg,#071a33 0%,#0b2b52 42%,#12508f 78%,#0f7d8c 100%);
+  overflow:hidden;min-height:100vh;
+}
+.acceso__arte:before{
+  content:"";position:absolute;right:-140px;top:-160px;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(99,184,255,.30),transparent 66%);
+}
+.acceso__arte:after{
+  content:"";position:absolute;left:-120px;bottom:-170px;width:460px;height:460px;border-radius:50%;
+  background:radial-gradient(circle,rgba(28,154,141,.32),transparent 68%);
+}
+.acceso__rejilla{
+  position:absolute;inset:0;opacity:.35;
+  background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:52px 52px;mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 78%);
+}
+.acceso__arte>*{position:relative;z-index:2}
+.acceso__top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.acceso__sello{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.24);border-radius:20px;padding:5px 12px}
+.acceso__mid{max-width:560px;padding:30px 0}
+.acceso__eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8fd0ff;font-weight:700;margin:0 0 12px}
+.acceso__eyebrow:before{content:"";width:22px;height:2px;border-radius:2px;background:#63b8ff}
+.acceso h1{margin:0 0 14px;font-size:clamp(27px,2.6vw,40px);line-height:1.12;font-weight:680;letter-spacing:-.9px}
+.acceso h1 em{font-style:normal;color:#8fd0ff}
+.acceso__bajada{margin:0 0 24px;font-size:13.6px;line-height:1.7;color:rgba(255,255,255,.82);max-width:520px}
+.acceso__lista{list-style:none;margin:0;padding:0;display:grid;gap:11px;max-width:560px}
+.acceso__lista li{display:flex;align-items:flex-start;gap:10px;font-size:12.6px;color:rgba(255,255,255,.90);line-height:1.45}
+.acceso__lista .ico{fill:#8fd0ff;flex:none;margin-top:2px}
+.acceso__lista strong{font-weight:650;color:#fff}
+.acceso__arte-pie{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;border-top:1px solid rgba(255,255,255,.15);padding-top:18px}
+.acceso__arte-pie strong{display:block;font-size:12.4px;font-weight:680;color:#fff;margin-bottom:2px}
+.acceso__arte-pie span{font-size:10.8px;color:rgba(255,255,255,.62);line-height:1.45;display:block}
+
+.acceso__panel{display:flex;flex-direction:column;justify-content:center;padding:44px 54px;background:
+  radial-gradient(circle at 100% 0%,#f2f7ff 0%,#fff 46%);min-height:100vh}
+.acceso__caja{width:100%;max-width:372px;margin:0 auto}
+.acceso__caja h2{margin:0 0 4px;font-size:23px;font-weight:670;letter-spacing:-.5px;color:var(--v-texto,#16233a)}
+.acceso__caja .acceso__sub{margin:0 0 24px;font-size:11.6px;color:var(--v-texto-3,#8b97a9);letter-spacing:.08em;text-transform:uppercase}
+.acceso__campo{margin-bottom:13px}
+.acceso__campo label{display:block;font-size:11.6px;font-weight:600;color:var(--v-texto-2,#5a6880);margin-bottom:5px}
+.acceso__campo .acceso__in{position:relative;display:flex;align-items:center}
+.acceso__campo .acceso__in .ico{position:absolute;left:11px;fill:#9aa7ba;pointer-events:none}
+.acceso__campo input{
+  width:100%;height:42px;border:1px solid #dfe5ee;border-radius:10px;background:#f8fafd;
+  padding:0 12px 0 36px;font:inherit;font-size:13px;color:var(--v-texto,#16233a);outline:none;transition:.15s;
+}
+.acceso__campo input:focus{background:#fff;border-color:#1f6feb;box-shadow:0 0 0 3px rgba(31,111,235,.13)}
+.acceso__fila{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:4px 0 20px;flex-wrap:wrap}
+.acceso__fila a{font-size:11.6px;color:#1f6feb;font-weight:600}
+.acceso__btn{
+  width:100%;height:44px;border:0;border-radius:10px;color:#fff;font:inherit;font-size:13.4px;font-weight:650;
+  cursor:pointer;background:linear-gradient(180deg,#2a7bf0,#1a5fd0);box-shadow:0 8px 20px rgba(31,111,235,.28);
+  display:flex;align-items:center;justify-content:center;gap:8px;transition:.16s;
+}
+.acceso__btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.acceso__demo{margin-top:26px;border-top:1px solid #eef1f6;padding-top:16px}
+.acceso__demo p{margin:0 0 9px;font-size:10.6px;color:#94a1b4;text-transform:uppercase;letter-spacing:.09em;font-weight:700}
+.acceso__demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.acceso__demo-grid span{display:flex;align-items:center;gap:6px;background:#f6f9fd;border:1px solid #e8eef7;border-radius:8px;padding:6px 9px;font-size:11px;color:#5a6880}
+.acceso__demo-grid code{font-family:ui-monospace,monospace;font-size:10.8px;color:#0a2342;font-weight:700}
+.acceso__legal{margin:26px 0 0;text-align:center;font-size:10.6px;color:#a8b3c4}
+@media(max-width:1024px){
+  .acceso{grid-template-columns:1fr}
+  .acceso__arte{min-height:auto;padding:34px 26px}
+  .acceso__arte-pie{grid-template-columns:1fr;gap:10px}
+  .acceso__panel{min-height:auto;padding:34px 22px 40px}
+  .acceso__mid{padding:22px 0}
+}
+
+/* ------------------------- refinamientos generales ---------------------- */
+.side__brand{display:flex;align-items:center;gap:10px;padding:14px 14px 13px}
+.side__brand .marca__sello{width:32px;height:32px}
+.side__brand small{display:block;margin-top:9px;font-size:9.2px}
+.top__marca{display:none}
+@media(max-width:1100px){.top__marca{display:inline-flex}.top__marca .marca__sello{width:26px;height:26px}.top__marca .marca__txt{display:none}}
+.v-hero{background:linear-gradient(118deg,#071a33 0%,#0b2b52 45%,#12508f 82%,#0f7d8c 100%)}
+.v-card{box-shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px -18px rgba(16,24,40,.35)}
+.v-cab h1{letter-spacing:-.5px}
